@@ -28,3 +28,32 @@ d3.select("svg")
   .attr("r", 40) // Set radius
   .style("fill", "steelblue"); // Set fill color
 ```
+
+## Modifying Selections
+
+After you've selected elements using `d3.select` or `d3.selectAll`, you can modify their appearance and behavior using various methods:
+
+| Method                           | Description                                                                                                                                                          | Example                                                                                    |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| `.attr(attribute, value)`        | Sets an attribute on the selected elements. Attributes define specific characteristics of the element, like the radius of a circle (`r`).                            | `.attr("r", 30)` (Sets the radius of all selected circles to 30)                           |
+| `.classed(className, condition)` | Adds or removes a class name from the elements based on a condition (optional). This allows you to style elements differently based on their data or other criteria. | `.classed("selected", true)` (Adds the "selected" class to all elements)                   |
+| `.property(propertyName, value)` | Gets or sets a property on the elements. Properties are similar to attributes, but they can also represent dynamic values.                                           | `.property("title", "My Circle")` (Sets the title property of all elements to "My Circle") |
+| `.style(styleName, value)`       | Applies CSS styles to the elements. This allows you to control the visual appearance of the elements.                                                                | `.style("fill", "teal")` (Sets the fill color of all elements to teal)                     |
+| `.text(textContent)`             | Sets the text content of the elements. This is useful for displaying data labels or other text information.                                                          | `.text("Hello, World!")` (Sets the text content of all elements to "Hello, World!")        |
+| `.html(htmlContent)`             | Sets the HTML content of the elements. This allows you to embed more complex HTML structures within your visualization.                                              | `.html("<b>Hello, World!</b>")` (Sets the HTML content of all elements to bold text)       |
+
+**Dynamic Customization:**
+
+These methods can also take a callback function with parameters `d` (data) and `i` (index) for dynamic customization based on your data. This allows you to modify the elements' appearance or behavior based on the specific data associated with each element.
+
+```javascript
+// Change fill color and set opacity for circles conditionally:
+d3.selectAll("circle")
+  .attr("r", 30) // Set radius for all circles
+  .style("fill", function (d) {
+    return d.value > 10 ? "teal" : "steelblue";
+  }) // Conditional fill based on data
+  .style("opacity", function (d) {
+    return d.value > 10 ? 1 : 0.5;
+  }); // Conditional opacity based on data
+```
