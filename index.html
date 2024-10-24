@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Svg Fundamentals..</title>
+  </head>
+  <body>
+    <svg
+      x="0px"
+      y="0px"
+      width="450px"
+      height="100px"
+      viewBox="0 0 450 100"
+      style="border: 2px dashed red"
+    >
+      <rect
+        x="10"
+        y="5"
+        width="90"
+        height="90"
+        stroke="black"
+        fill="transparent"
+      />
+
+      <circle cx="170" cy="50" r="45" fill="transparent" stroke="black" />
+
+      <line fill="none" stroke="black" x1="260" y1="5" x2="260" y2="95" />
+    </svg>
+    <br />
+
+    <!-- Polygon shape... -->
+    <svg
+      x="0px"
+      y="0px"
+      width="290px"
+      height="220px"
+      viewBox="0 0 290 220"
+      style="border: 2px dashed red"
+      aria-labelledby="title"
+    >
+      <title>Trying the SVG</title>
+      <polygon
+        points="97,24 115,82 176,85 130, 121 142, 182 97,150 46, 184 62, 130 14, 82 17, 85 76,83"
+        fill="teal"
+        stroke="#ccc"
+        stroke-width="4"
+      />
+    </svg>
+    <br />
+    <!-- Path Tags  -->
+    <svg
+      viewBox="0 0 400 200"
+      style="border: 5px dashed teal"
+      xmlns="http://www.w3.org/2000/svg"
+      height="200"
+      width="400"
+    >
+      <!-- C and S is reversal of it  -->
+      <path
+        d="M 40 100 C 64 0 64 0 100 100 S 134 140 160 100"
+        stroke="red"
+        stroke-width="3"
+        fill="teal"
+      />
+    </svg>
+    <br />
+    <svg
+      viewBox="0 0 400 200"
+      style="border: 5px dashed teal"
+      xmlns="http://www.w3.org/2000/svg"
+      height="200"
+      width="400"
+    >
+      <!-- Quaderatic has only one point both end share the common point and
+      last paramter is where to end it and T paramter is about the ending.. 
+    -->
+      <path
+        d="M 40 100  Q 114 0 150 100 T  250 100"
+        stroke="teal"
+        stroke-width="4"
+        fill="none"
+      />
+    </svg>
+    <br />
+    <svg
+      viewBox="0 0 400 200"
+      style="border: 5px dashed teal"
+      xmlns="http://www.w3.org/2000/svg"
+      height="200"
+      width="400"
+    >
+      <!-- A Parameter is x radius, Y radius,  next is 
+       rotation to x or y, and the last one
+      is for changing the direction of the arc 
+    -->
+
+      <path
+        d="M 40 100  A 40, 90, 0, 0, 1 100 100"
+        stroke="yellow"
+        stroke-width="5px"
+        fill="none"
+      />
+    </svg>
+
+    <br />
+
+    <!-- for the text -->
+    <svg
+      viewBox="0 0 400 200"
+      style="border: 5px dashed teal"
+      xmlns="http://www.w3.org/2000/svg"
+      height="200"
+      width="400"
+    >
+      <text x="50" y="50">Hello World</text>
+    </svg>
+  </body>
+</html>

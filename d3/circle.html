@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D3 Pie Chart</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+  </head>
+  <body>
+    <svg width="300" height="300"></svg>
+
+    <script>
+      var svg = d3.select("svg");
+
+      // Set up pie data (45% for steelblue, 55% for teal)
+      var data = [45, 55];
+
+      // Define the pie function
+      var pie = d3.pie();
+
+      // Generate pie angles based on data
+      var pieData = pie(data);
+
+      // Set up an arc generator
+      var arcGenerator = d3
+        .arc()
+        .innerRadius(50) // Full pie chart (no donut hole)
+        .outerRadius(100); // Radius of the pie
+
+      // Create a color scale for the slices
+      var color = d3.scaleOrdinal().domain(data).range(["steelblue", "teal"]);
+
+      // Append group elements (one for each slice) and draw the arcs
+      svg
+        .selectAll("path")
+        .data(pieData)
+        .enter()
+        .append("path")
+        .attr("d", arcGenerator)
+        .attr("fill", function (d, i) {
+          return color(i); // Set the color for each slice
+        })
+        .attr("transform", "translate(150,150)")
+        .on("mouseover", function (event, d) {
+          // Calculate centroid (center point) of the arc
+          var [x, y] = arcGenerator.centroid(d);
+          // Apply a transition and move the arc slightly outward
+          d3.select(this)
+            .transition()
+            .duration(200)
+            .attr("transform", `translate(${150 + x * 0.1},${150 + y * 0.1})`); // Shift outward by 10% of the arc's centroid
+        })
+        .on("mouseout", function () {
+          // Reset the arc back to the original position on mouse out
+          d3.select(this)
+            .transition()
+            .duration(200)
+            .attr("transform", "translate(150,150)"); // Back to original position
+        }); // Move the pie to the center of the SVG
+    </script>
+  </body>
+</html>

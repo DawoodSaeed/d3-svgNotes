@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <svg width="300" height="300" id="circleByArcs"></svg>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"
+      integrity="sha512-vc58qvvBdrDR4etbxMdlTt4GBQk1qjvyORR2nrsPsFPyrs+/u5c3+1Ct6upOgdZoIl7eq6k3a1UPDSNAQi/32A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script>
+      d3.csv("data.csv", function (data) {
+        console.log(data);
+      });
+
+      //   Scallling...
+      var barScaleLength = d3
+        .scaleLinear()
+        .domain([0, 100])
+        .range([0, 2 * Math.PI]);
+      console.log(barScaleLength(50));
+
+      var arcGenerator = d3.arc();
+      var arcPath = arcGenerator({
+        startAngle: 0,
+        endAngle: barScaleLength(100),
+        innerRadius: 50,
+        outerRadius: 100,
+      });
+
+      var arcPath2 = arcGenerator({
+        startAngle: barScaleLength(100),
+        endAngle: barScaleLength(0),
+        innerRadius: 50,
+        outerRadius: 100,
+      });
+      const svg = d3.select("#circleByArcs");
+      svg
+        .append("path")
+        .attr("d", arcPath)
+        .attr("fill", "steelblue")
+        .attr("transform", "translate(150,150)");
+
+      svg
+        .append("path")
+        .attr("d", arcPath2)
+        .attr("fill", "orange")
+        .attr("transform", "translate(150,150)");
+    </script>
+  </body>
+</html>
