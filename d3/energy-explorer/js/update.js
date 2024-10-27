@@ -6,18 +6,26 @@ const update = function (countries) {
   console.log("Layout data: ", data);
 
   d3.select("g.countries")
-    .selectAll("circle")
+    .selectAll("g")
     .data(data)
-    .join("circle")
-    .style("fill", "#aaa")
-    .attr("cx", (d, i) => {
+    .join("g")
+    .attr("x", (d, i) => {
       return d.x;
     })
-    .attr("cy", function (d) {
+    .attr("y", function (d) {
       return d.y;
     })
-    .attr("r", function (d) {
-      return d.radius;
+    .attr("fill", "#aaa")
+    .each(function (d, i) {
+      const g = d3.select(this);
+      if (g.selectAll("*").empty()) {
+        g.append("circle").attr("r", d.radius).attr("cx", d.x).attr("cy", d.y);
+
+        g.append("text")
+          .attr("x", d.x - d.radius)
+          .attr("y", d.y + 50)
+          .text("Label");
+      }
     });
 };
 

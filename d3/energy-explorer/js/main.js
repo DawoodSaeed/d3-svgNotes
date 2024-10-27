@@ -73,3 +73,26 @@ function transformRow(d) {
   };
 }
 d3.csv("data/data.csv", transformRow).then(update);
+
+// let data = [];
+// function updateData() {
+//   let maxItems = 5,
+//     maxValue = 25;
+//   data = [];
+//   let numItems = Math.ceil(Math.random() * maxItems);
+//   for (let i = 0; i < numItems; i++) {
+//     data.push({
+//       renewable: Math.random() * maxValue,
+//     });
+//   }
+// }
+
+// window.addEventListener("load", function () {
+//   updateData();
+//   update(data);
+// });
+
+// setInterval(() => {
+//   updateData();
+//   update(data);
+// }, 4000);
