@@ -14,7 +14,7 @@ This curated list of resources and code examples will guide you on your D3.js jo
 
 D3.js empowers you to manipulate the Document Object Model (DOM) using data. The core concepts include:
 
-**1. Selecting DOM Elements**
+## 1. Selecting DOM Elements
 
 - `d3.select(selector)`: Selects the first matching element (e.g., `d3.select("svg")`).
 - `d3.selectAll(selector)`: Selects all matching elements (e.g., `d3.selectAll("circle")`).
@@ -57,3 +57,16 @@ d3.selectAll("circle")
     return d.value > 10 ? 1 : 0.5;
   }); // Conditional opacity based on data
 ```
+
+## D3 Selection Methods
+
+The following table summarizes essential D3 selection methods used for interacting with DOM elements in D3.js:
+
+| Method      | Description                                         | Example Usage             |
+| ----------- | --------------------------------------------------- | ------------------------- |
+| `.size()`   | Returns the number of elements in the selection.    | `selection.size()`        |
+| `.nodes()`  | Provides a list of DOM nodes in the selection.      | `selection.nodes()`       |
+| `.append()` | Appends a new element to each item in the selection | `selection.append("div")` |
+| `.remove()` | Removes selected elements from the DOM.             | `selection.remove()`      |
+
+Use these methods to dynamically interact with elements, enabling you to modify, add, or remove elements within the DOM in a declarative and data-driven way.

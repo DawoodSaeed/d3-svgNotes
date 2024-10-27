@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Energy Explorer</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        font-family: Quicksand;
+      }
+
+      .heading {
+        font-size: 26px;
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="400" height="100" style="border: 1px solid red">
+      <circle cx="100" cy="50" r="20"></circle>
+      <circle cx="200" cy="50" r="30"></circle>
+      <circle cx="300" cy="50" r="40"></circle>
+    </svg>
+    <br />
+    <svg
+      width="400"
+      height="100"
+      viewBox="0 0 400 100"
+      style="border: 4px dashed teal"
+    >
+      <g class="chart"></g>
+    </svg>
+
+    <br />
+    <svg
+      width="400"
+      height="300"
+      viewBox="0 0 400 300"
+      style="border: 4px solid rgb(0, 79, 128); margin-top: 10px"
+    >
+      <g class="barChart"></g>
+    </svg>
+
+    <br />
+
+    <h3 class="heading">Countries...</h3>
+    <svg
+      style="border: 4px solid rgb(57, 131, 64); width: 100%; height: 100%"
+      viewBox="0 0 1500 1000"
+    >
+      <g class="countries"></g>
+    </svg>
+    <script src="js/lib/d3.min.js"></script>
+    <script src="js/main.js" type="module"></script>
+  </body>
+</html>
